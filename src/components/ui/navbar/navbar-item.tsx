@@ -1,16 +1,12 @@
-import { LiHTMLAttributes, ReactNode } from 'react';
+import { ReactNode } from 'react';
 import { twMerge } from 'tailwind-merge';
 
 type NavbarItemProps = {
   current?: boolean;
   children: ReactNode;
-} & LiHTMLAttributes<HTMLLIElement>;
+};
 
-export function NavbarItem({
-  children,
-  current = false,
-  ...rest
-}: NavbarItemProps) {
+export function NavbarItem({ children, current = false }: NavbarItemProps) {
   return (
     <li
       className={twMerge(
@@ -20,7 +16,6 @@ export function NavbarItem({
         'rounded-md px-3 py-2 text-sm font-medium list-none transition-colors',
       )}
       aria-current={current ? 'page' : undefined}
-      {...rest}
     >
       {children}
     </li>
